@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon server/server.js  ",
     "dev": "concurrently \"nodemon server/server.js\" \"webpack-dev-server --mode development --open --hot\"",
-    "build": "webpack --mode production" 
+    "build": "webpack --mode production",
+    "devReact" : "webpack-dev-server --mode development --open --hot"
   },
   "repository": {
     "type": "git",
