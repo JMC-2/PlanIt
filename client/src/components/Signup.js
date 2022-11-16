@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
@@ -10,6 +10,8 @@ const Signup = () => {
     const body = {
       username: e.target.username.value,
       password: e.target.password.value,
+      email: e.target.email.value,
+      name: e.target.name.value,
     };
     if (!body.username || !body.password) {
       return alert('Need both username and password input');
@@ -26,7 +28,8 @@ const Signup = () => {
       const receivedBack = await res.json();
       if (receivedBack.added === true) {
         setUsername(body.username);
-        navigate('/home');
+        serUserId(body.user_id);
+        navigate('/');
       } else {
         alert('Unable to add');
       }
@@ -45,6 +48,22 @@ const Signup = () => {
               id='username'
               name='username'
               placeholder='Username'
+            ></input>
+            <br></br>
+            <input
+              className='inputFields'
+              type='text'
+              id='name'
+              name='name'
+              placeholder='Name'
+            ></input>
+            <br></br>
+            <input
+              className='inputFields'
+              type='text'
+              id='email'
+              name='email'
+              placeholder='Email'
             ></input>
             <br></br>
             <input
