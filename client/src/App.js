@@ -13,8 +13,10 @@ const App = () => {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<HomePage username={username} userId={userId}/>} />
-        <Route path='/login' element={<Login setUsername={setUsername} setUserId={setUserId}/>} />
+        {/* <Route path='/' element={<HomePage username={username} userId={userId}/>} />
+        <Route path='/login' element={<Login setUsername={setUsername} setUserId={setUserId}/>} /> */}
+        <Route path='/home' element={<HomePage username={username} userId={userId}/>} />
+        <Route path='/' element={<Login setUsername={setUsername} setUserId={setUserId}/>} />
         <Route path='/signup' element={<Signup setUsername={setUsername} setUserId={setUserId}/>} />
       </Routes>
     </div>

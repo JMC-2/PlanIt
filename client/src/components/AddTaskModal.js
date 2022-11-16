@@ -60,12 +60,18 @@ const AddTaskModal = (props) => {
     e.preventDefault();
     const body = {
       userId: props.userId,
-      inputName: initialValues.textValue,
-      description: initialValues.description,
-      date: initialValues.date,
-      time: initialValues.hour,
-      schedule: initialValues.schedule,
-      type: initialValues.social,
+      inputName: values.textValue,
+      description: values.description,
+      date: values.date,
+      time: values.hour,
+      schedule: values.schedule,
+      type: values.social,
+      // inputName: initialValues.textValue,
+      // description: initialValues.description,
+      // date: initialValues.date,
+      // time: initialValues.hour,
+      // schedule: initialValues.schedule,
+      // type: initialValues.social,
     };
     try {
       //NEED CORRECT ENDPOINT

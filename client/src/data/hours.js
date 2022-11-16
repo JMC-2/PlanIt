@@ -3,55 +3,55 @@
         time:' '
     },
     {
-        time:'8am'
+        time:'8:00 AM'
     },
     {
-        time:'9am'
+        time:'9:00 AM'
     },
     {
-        time:'10am'
+        time:'10:00 AM'
     },
     {
-        time:'11am'
+        time:'11:00 AM'
     },
     {
-        time:'12pm'
+        time:'12:00 PM'
     },
     {
-        time:'1pm'
+        time:'1:00 PM'
     },
     {
-        time:'2pm'
+        time:'2:00 PM'
     },
     {
-        time:'3pm'
+        time:'3:00 PM'
     },
     {
-        time:'4pm'
+        time:'4:00 PM'
     },
     {
-        time:'5pm'
+        time:'5:00 PM'
     },
     {
-        time:'6pm'
+        time:'6:00 PM'
     },
     {
-        time:'7pm'
+        time:'7:00 PM'
     },
     {
-        time:'8pm'
+        time:'8:00 PM'
     },
     {
-        time:'9pm'
+        time:'9:00 PM'
     },
     {
-        time:'10pm'
+        time:'10:00 PM'
     },
     {
-        time:'11pm'
+        time:'11:00 PM'
     },
     {
-        time:'12am'
+        time:'12:00 AM'
     },
 ]
 
