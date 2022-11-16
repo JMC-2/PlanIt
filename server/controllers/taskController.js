@@ -11,8 +11,7 @@ const createErr = (method, err) => {
 
 taskController.addTask = (req, res, next) => {
   const { userId, inputName, description, date, time, schedule, type } = req.body;
-  console.log(typeof time);
-  console.log('time: ', time);
+  console.log('type: ', type);
 
   const query = 'INSERT INTO tasks (user_id, name, description, date, time, calendar_id) VALUES ($1, $2, $3, $4, $5, (SELECT calendar_id FROM calendars WHERE name=$6)) RETURNING *;';
   db.query(query, [userId, inputName, description, date, time, type], (err, result) => {
@@ -66,5 +65,5 @@ module.exports = taskController;
 //   date: initialValues.date,
 //   time: initialValues.hour,
 //   schedule: initialValues.schedule,
-//   type: initialValues.social,
+//   type: initialValues.personal,
 // };

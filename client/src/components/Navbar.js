@@ -24,6 +24,7 @@ const Navbar = ({ username, userId }) => {
           showAddTaskModal={showAddTaskModal}
           toggleAddTaskModal={toggleAddTaskModal}
           userId={userId}
+          username={username}
         />
       </div>
     </nav>
