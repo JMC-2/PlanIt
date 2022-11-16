@@ -6,34 +6,36 @@ import TodoInputBox from './TodoInput';
  
 const TodoForToday = ({ username, userId, data }) => {
 
-  const compeleteToDoList = async (e) => {
-    e.preventDefault();
-    const body = {
-      userId: userId,
-      inputName: inputName,
-      completed: true,
-    }; 
-    try {
-      //NEED CORRECT ENDPOINT
-      fetch('/api/complete', {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-        body: JSON.stringify(body),
-      });
-      const data = await res.json();;
-      // name of the todolist
-     
-      //assume body is an object
-    } catch (error) {
-      console.log(error.message);
-    }
+  // console.log('data from todolist',data)
 
-    useEffect(() => {
-      UpdateToDoList();
-    }, []);
-  };
+  // const compeleteToDoList = async (e) => {
+  //   e.preventDefault();
+  //   const body = {
+  //     userId: userId,
+  //     inputName: inputName,
+  //     completed: true,
+  //   }; 
+  //   try {
+  //     //NEED CORRECT ENDPOINT
+  //     const res = await fetch('/api/complete', {
+  //       method: 'PATCH',
+  //       headers: {
+  //         'Content-Type': 'application/json; charset=UTF-8',
+  //       },
+  //       body: JSON.stringify(body),
+  //     });
+  //     const dataGetBack = await res.json();
+  //     // name of the todolist
+     
+  //     //assume body is an object
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+
+    // useEffect(() => {
+    //   UpdateToDoList();
+    // }, []);
+  // };
 
   return (
     <div className='todo'>

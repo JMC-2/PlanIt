@@ -78,22 +78,23 @@ const AddTaskModal = (props) => {
     };
     try {
       //NEED CORRECT ENDPOINT
-      fetch('/api/add', {
+      const res = await fetch('/api/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',
         },
         body: JSON.stringify(body),
       });
-      const data = await res.json();;
+      const data = await res.json();
       //assume body is an object
-      console.log('data from add task', data)
+      console.log('data from Add Task', data)
+
     } catch (error) {
       console.log(error.message);
     }
     
     props.toggleAddTaskModal;
-    refreshPage();
+    // refreshPage();
   };
 
   return (
