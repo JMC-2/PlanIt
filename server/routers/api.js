@@ -3,19 +3,18 @@ const router = express.Router();
 
 const taskController = require('../controllers/taskController.js');
 
-
+ 
  
 //add task
-router.post('/add', 
-  // add task to database for specific username passed from FE
-  (req, res) => res.status(200).json({})
+router.post('/add', taskController.addTask,
+  (req, res) => res.status(200).json(res.locals.taskInfo)
 
-)
+);
 
 //update task
 router.patch('/update',
   (req, res) => res.status(200).json({})
-)
+);
 
 // compelete task
 router.patch('/complete',
@@ -23,14 +22,13 @@ router.patch('/complete',
   // FE needs nothing back
   (req, res) => res.status(200).json({})
 
-)
+);
 
 // get for the specific date
-router.post('/task', 
-  // all tasks associated with user in a big array :) 
-  (req, res) => res.status(200).json({})
-
-) 
+router.post('/task',
+  taskController.getTask,
+  (req, res) => res.status(200).json(res.locals.taskList)
+); 
 
 
 

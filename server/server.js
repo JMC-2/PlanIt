@@ -30,14 +30,15 @@ app.use((req, res) => {
 });
 
 // global error handler
-app.use((req, res, err, next) => {
+app.use((err, req, res, next) => {
   const defaultErr = {
     status: 500,
     log: 'there is an error in an unidentified middleware',
     message:'there is a server error'
   };
   const customErr = Object.assign(defaultErr, err);
-  res.send(customErr.status).json(customErr.message);
+  console.log(customErr.log);
+  res.status(customErr.status).json(customErr.message);
 })
 
 app.listen(3000, () => console.log('listening on port 3000'));
