@@ -21,7 +21,6 @@ router.patch('/complete',
   // change complete to true in DB
   // FE needs nothing back
   (req, res) => res.status(200).json({})
-
 );
 
 // get for the specific date

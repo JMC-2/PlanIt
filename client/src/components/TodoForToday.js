@@ -12,7 +12,7 @@ const TodoForToday = ({ username, userId, data }) => {
       userId: userId,
       inputName: inputName,
       completed: true,
-    };
+    }; 
     try {
       //NEED CORRECT ENDPOINT
       fetch('/api/complete', {
