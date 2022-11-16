@@ -5,13 +5,13 @@ module.exports = {
   entry: './client/index.js',
   output: {
     path: path.join(__dirname, '/build'),
-    filename: 'bundle.js',
     publicPath: '/',
+    filename: 'bundle.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './client/index.html'
-    })
+      template: './client/index.html',
+    }),
   ],
   module: {
     rules: [
@@ -21,23 +21,23 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader']
-      }
-    ]
+        use: ['file-loader'],
+      },
+    ],
   },
   devServer: {
     static: {
@@ -46,6 +46,6 @@ module.exports = {
     },
     proxy: {
       '/': 'http://localhost:3000',
-    }
+    },
   },
 };
