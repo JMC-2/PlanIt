@@ -20,12 +20,14 @@ router.patch('/update',
 // compelete task
 router.patch('/complete',
   // change complete to true in DB
+  // FE needs nothing back
   (req, res) => res.status(200).json({})
 
 )
 
 // get for the specific date
 router.post('/task', 
+  // all tasks associated with user in a big array :) 
   (req, res) => res.status(200).json({})
 
 ) 

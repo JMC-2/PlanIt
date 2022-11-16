@@ -2,9 +2,9 @@ const db = require('../models/PlanItModel');
 
 const taskController = {};
 
-const createErr = (method) => {
+const createErr = (method, err) => {
   return ({
-    log: `This error occured in ${method} method inside taskController`,
+    log: `${method} method inside taskController: ${err}`,
     message: `This error occured in ${method} method inside taskController. Check terminal for error.`
   })
 }

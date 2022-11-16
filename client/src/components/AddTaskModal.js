@@ -28,15 +28,15 @@ const AddTaskModal = (props) => {
           <p>Schedule now?: </p>
 
           <input type='radio' className='yes'></input>
-          <label for='yes'>Yes</label>
+          <label htmlFor='yes'>Yes</label>
           <input type='radio' className='no'></input>
-          <label for='no'>No</label>
+          <label htmlFor='no'>No</label>
         </form>
         <div className='schedule'>
           Date:
           <input type='date' id='date' name='date'></input>
         </div>
-        <label for='time'>Choose a time: </label>
+        <label htmlFor='time'>Choose a time: </label>
         <select id='selectTime' name='selectTime'>
           {arr}
         </select>
@@ -44,11 +44,11 @@ const AddTaskModal = (props) => {
           <p>Type: </p>
 
           <input type='radio' className='social'></input>
-          <label for='social'>Social</label>
+          <label htmlFor='social'>Social</label>
           <input type='radio' className='work'></input>
-          <label for='work'>Work</label>
+          <label htmlFor='work'>Work</label>
           <input type='radio' className='school'></input>
-          <label for='school'>School</label>
+          <label htmlFor='school'>School</label>
         </form>
 
         <input type='text' className='description' placeholder='Description ...'></input>
