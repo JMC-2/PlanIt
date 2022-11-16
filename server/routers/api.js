@@ -5,13 +5,13 @@ const taskController = require('../controllers/taskController.js');
 
  
  
-//add task
-router.post('/add', taskController.addTask,
-  (req, res) => res.status(200).json(res.locals.taskInfo)
+//route set up to handle adding a task to the tasks database
+router.post('/add', taskController.addTask,taskController.getTask,
+  (req, res) => res.status(200).json(res.locals.taskList)
 
 );
 
-//update task
+//update a task in the tasks database
 router.patch('/update',
   (req, res) => res.status(200).json({})
 );
@@ -23,7 +23,7 @@ router.patch('/complete',
   (req, res) => res.status(200).json({})
 );
 
-// get for the specific date
+// get all tasks for a particular user
 router.post('/task',
   taskController.getTask,
   (req, res) => res.status(200).json(res.locals.taskList)

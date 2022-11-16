@@ -48,22 +48,3 @@ taskController.getTask = (req, res, next) => {
 
 module.exports = taskController;
  
-
-//  task_id     SERIAL PRIMARY KEY NOT NULL,
-//   user_id     INT NOT NULL,
-//   name        VARCHAR(50) NOT NULL,
-//   description        VARCHAR(255) NOT NULL,
-//   completed        BOOLEAN DEFAULT false,
-//   date         DATE,
-//   time         TIME,
-//   calendar_id  INT,
-
-//  const body = {
-//   userId: props.userId,
-//   inputName: initialValues.textValue,
-//   description: initialValues.description,
-//   date: initialValues.date,
-//   time: initialValues.hour,
-//   schedule: initialValues.schedule,
-//   type: initialValues.personal,
-// };

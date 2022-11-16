@@ -87,6 +87,7 @@ const AddTaskModal = (props) => {
       });
       const data = await res.json();;
       //assume body is an object
+      console.log('data from add task', data)
     } catch (error) {
       console.log(error.message);
     }
