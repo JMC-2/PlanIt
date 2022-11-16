@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Login = ({setUsername,serUserId}) => {
+const Login = ({setUsername,setUserId}) => {
   const navigate = useNavigate();
 
   const handleClick = async (e) => {
@@ -25,7 +25,7 @@ const Login = ({setUsername,serUserId}) => {
       //both username and password are true, means route them to mainPage, preserving the username in state
       if (receivedBack.isSuccess === true) {
         setUsername(receivedBack.username);
-        serUserId(receivedBack.user_id);
+        setUserId(receivedBack.user_id);
         navigate('/home');
 
         //if either false, then let them know login information is invalid/incorrect

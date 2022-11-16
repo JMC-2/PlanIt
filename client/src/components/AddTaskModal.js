@@ -94,15 +94,16 @@ const AddTaskModal = (props) => {
           <p>Schedule now?: </p>
 
           <input type='radio' className='yes' name='yesNo' value='yes' onChange={handleInputChange}></input>
-          <label for='yes'>Yes</label>
+          <label htmlFor='yes'>Yes</label>
           <input type='radio' className='no' name='yesNo' value='no' onChange={handleInputChange}></input>
-          <label for='no'>No</label>
+          <label htmlFor='no'>No</label>
         </form>
         <div className='schedule'>
           Date:
           <input type='date' id='date' name='date' onChange={handleInputChange}></input>
         </div>
-        <label for='time'>Choose a time: </label>
+
+        <label htmlFor='time'>Choose a time: </label>
         <select id='selectTime' name='selectTime' onChange={handleInputChange}>
           {arr}
         </select>
@@ -110,11 +111,11 @@ const AddTaskModal = (props) => {
           <p>Type: </p>
 
           <input type='radio' className='social' name='type' value='social' onChange={handleInputChange}></input>
-          <label for='social'>Social</label>
+          <label htmlFor='social'>Social</label>
           <input type='radio' className='work' name='type' value='work' onChange={handleInputChange}></input>
-          <label for='work'>Work</label>
+          <label htmlFor='work'>Work</label>
           <input type='radio' className='school'name='type' value='school' onChange={handleInputChange}></input>
-          <label for='school'>School</label>
+          <label htmlFor='school'>School</label>
         </form>
 
         <input type='text' className='description' name='description' id='description' placeholder='Description ...' onChange={handleInputChange}></input>
