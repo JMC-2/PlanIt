@@ -1,0 +1,55 @@
+ const hoursDetail = [
+    {
+        time:'8am'
+    },
+    {
+        time:'9am'
+    },
+    {
+        time:'10am'
+    },
+    {
+        time:'11am'
+    },
+    {
+        time:'12pm'
+    },
+    {
+        time:'1pm'
+    },
+    {
+        time:'2pm'
+    },
+    {
+        time:'3pm'
+    },
+    {
+        time:'4pm'
+    },
+    {
+        time:'5pm'
+    },
+    {
+        time:'6pm'
+    },
+    {
+        time:'7pm'
+    },
+    {
+        time:'8pm'
+    },
+    {
+        time:'9pm'
+    },
+    {
+        time:'10pm'
+    },
+    {
+        time:'11pm'
+    },
+    {
+        time:'12am'
+    },
+]
+
+export default hoursDetail;

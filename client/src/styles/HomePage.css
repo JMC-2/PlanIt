@@ -1,0 +1,9 @@
+.underNav{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.rightSide{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
