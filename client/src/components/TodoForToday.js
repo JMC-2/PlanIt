@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import '../styles/TodoForToday.css';
 import TodoInputBox from './TodoInput';
 
-
+ 
 const TodoForToday = ({ username, userId, data }) => {
 
   // console.log('data from todolist',data)
