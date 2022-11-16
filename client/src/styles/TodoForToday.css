@@ -1,3 +1,9 @@
 .todo{
-  background-color: lightgoldenrodyellow;
+  background-color: #FEFAE0;
+  padding: 1rem;
+}
+
+.heading{
+  padding: 0px;
+  margin: 0px;
 }

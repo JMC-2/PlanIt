@@ -20,14 +20,15 @@ const HourlyCalendar = ({userId, data}) => {
             }
           });
     } else {
-      arr.push(<div key={times.time} className={times.time}> {times.time} </div>)
+      arr.push(<div key={times.time} className="time"> {times.time} </div>)
     }
   })
 
   return (
   <>
     <div className='timedisplay'>
-      {arr}
+      <h1 className='heading'>Time :</h1>
+      <div>{arr}</div>
     </div>
   
   </>

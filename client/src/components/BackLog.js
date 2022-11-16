@@ -30,7 +30,7 @@ const BackLog = ({userId, data}) => {
 
   return (
     <div className='backlog'>
-      <h1>Backlog</h1>
+      <h1 className='heading'>Backlog :</h1>
       <div className='rightNav'>
         <ul className='ul'>
           {arr}

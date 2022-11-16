@@ -37,7 +37,7 @@ const TodoForToday = ({ username, userId, data }) => {
 
   return (
     <div className='todo'>
-      <h1>To-Dos For Today</h1>
+      <h1 className="heading">To Do :</h1>
       <TodoInputBox userId={userId} data={data}/>
     </div>
   );
