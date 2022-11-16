@@ -3,8 +3,11 @@ const app = express();
 const path = require('path');
 const apiRouter = require('./routers/api.js');
 const loginRouter = require('./routers/login.js');
+const cors = require('cors');
+// const cookieParser = require('cookie-parser');
 
-
+// app.use(cookieParser());
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -12,6 +15,8 @@ app.get('/', (req, res) => {
   console.log('we should see this ');
   return res.status(200).sendFile(path.join(__dirname, '../client/index.html'))
 })
+
+app.use(express.static(path.join(__dirname, '../client')));
 
 app.use('/api', apiRouter);
 app.use('/user', loginRouter);

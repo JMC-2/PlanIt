@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({setUsername,serUserId}) => {
   const navigate = useNavigate();
 
   const handleClick = async (e) => {
@@ -23,10 +23,10 @@ const Login = () => {
       //username will be true if username exists, password will be true if password matches
 
       //both username and password are true, means route them to mainPage, preserving the username in state
-      if (receivedBack.login === true) {
-        setUsername(body.username);
-        serUserId(body.user_id);
-        navigate('/');
+      if (receivedBack.isSuccess === true) {
+        setUsername(receivedBack.username);
+        serUserId(receivedBack.user_id);
+        navigate('/home');
 
         //if either false, then let them know login information is invalid/incorrect
       } else {
@@ -38,7 +38,7 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div>
       <h1 id= 'title'>PlanIt</h1>
       <div className='loginDiv'>
         <h1>Please Log In </h1>
@@ -52,7 +52,7 @@ const Login = () => {
 
         <Link to='/signup' id='newAccBtn'>Create A New Account</Link>
       </div>
-    </>
+    </div>
   );
 }
 
