@@ -10,8 +10,8 @@ const HomePage = ({ username, userId }) => {
 
   let data;  
 
-  const userToDoList = async (e) => {
-    e.preventDefault();
+  const userToDoList = async () => {
+    
     const body = { userId: userId, username:username };
     try {
       //NEED CORRECT ENDPOINT
@@ -24,7 +24,7 @@ const HomePage = ({ username, userId }) => {
       });
       data = await res.json();
       // name of the todolist
-      
+      console.log(data)
       //assume body is an object
     } catch (error) {
       console.log(error.message);

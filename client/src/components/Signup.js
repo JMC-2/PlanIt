@@ -27,6 +27,7 @@ const Signup = ({setUsername, setUserId}) => {
       });
       const receivedBack = await res.json();
       console.log('receivedBack: ', receivedBack)
+      localStorage.setItem('jwtHeaderKey', receivedBack.jwt);
       if (receivedBack.isSuccess === true) {
         setUsername(receivedBack.username);
         setUserId(receivedBack.user_id);
