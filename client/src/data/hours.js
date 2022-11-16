@@ -1,5 +1,8 @@
  const hoursDetail = [
     {
+        time:' '
+    },
+    {
         time:'8am'
     },
     {

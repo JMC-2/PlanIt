@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import hoursDetail from '../data/hours';
 import "../styles/HourlyCalendar.css"
 
-const HourlyCalendar = () => {
+
+const HourlyCalendar = ({userId, data}) => {
   const arr = [];
-  hoursDetail.map((times, index)=>{
+  hoursDetail.map((times)=>{
     {/* console.log(times.time) */}
-    arr.push(<div key={index} className={times.time}> {times.time} </div>)
+    if (data){
+      data?.map((obj) => {
+            
+            //CHECK THE DATA FROM THE OBJECT ********************************
+            if (obj.time === times.time){
+              let chunk = 
+                  <li> 
+                    {obj.name}
+                  </li>;
+              arr.push(<div key={times.time} className={times.time}> {times.time} {chunk}</div>)
+            }
+          });
+    } else {
+      arr.push(<div key={times.time} className={times.time}> {times.time} </div>)
+    }
   })
 
   return (
