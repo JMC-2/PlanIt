@@ -12,7 +12,7 @@ const HomePage = ({ username, userId }) => {
 
   const userToDoList = async (e) => {
     e.preventDefault();
-    const body = { userId: userId };
+    const body = { userId: userId, username:username };
     try {
       //NEED CORRECT ENDPOINT
       fetch('/api/task', {
