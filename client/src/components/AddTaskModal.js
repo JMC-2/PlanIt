@@ -8,7 +8,7 @@ const initialValues = {
   description: '',
   textValue: '',
   schedule: 'no',
-  type: 'personal',
+  type: 'social',
 };
 
 const AddTaskModal = (props) => {
@@ -20,7 +20,7 @@ const AddTaskModal = (props) => {
   // const [description, setDescription] = useState('')
   // const [textValue, setTextValue] = useState('')
   // const [schedule, setSchedule] = useState('no')
-  // const [type, setType] = useState('personal')
+  // const [type, setType] = useState('social')
 
   const showModalClassName = props.showAddTaskModal
     ? 'modal display-block'
@@ -28,12 +28,12 @@ const AddTaskModal = (props) => {
   // function for publishing and
   const arr = [];
   hoursDetail.map((times, index) => {
-    
-    // console.log('times.time: ', times.time) 
-    
+    {
+      /* console.log(times.time) */
+    }
     let hour = times.time;
     arr.push(
-      <option key={index} className={times.time} name={hour} value={times.time} >
+      <option key={index} className={times.time} name={hour} value={times.time}>
         {' '}
         {times.time}{' '}
       </option>
@@ -49,9 +49,6 @@ const AddTaskModal = (props) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    console.log('name: ', name);
-    console.log('value: ', value);
-
     setValues({
       ...values,
       [name]: value,
@@ -68,37 +65,39 @@ const AddTaskModal = (props) => {
       date: values.date,
       time: values.hour,
       schedule: values.schedule,
-      type: values.type,
+      type: values.social,
       // inputName: initialValues.textValue,
       // description: initialValues.description,
       // date: initialValues.date,
       // time: initialValues.hour,
       // schedule: initialValues.schedule,
-      // type: initialValues.personal,
+      // type: initialValues.social,
     };
     try {
       //NEED CORRECT ENDPOINT
-      fetch('/api/add', {
+      const res = await fetch('/api/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',
         },
         body: JSON.stringify(body),
       });
-      const data = await res.json();;
+      const data = await res.json();
       //assume body is an object
+      console.log('data from Add Task', data)
+
     } catch (error) {
       console.log(error.message);
     }
     
     props.toggleAddTaskModal;
-    refreshPage();
+    // refreshPage();
   };
 
   return (
     <div className={showModalClassName}>
       <section className='modal-main'>
-        <input type='text' className='name' name='textValue' id='name' placeholder='Task ...' onChange={handleInputChange}></input>
+        <input type='text' className='name' name='name' id='name' placeholder='Task ...' onChange={handleInputChange}></input>
         <form>
           <p>Schedule now?: </p>
 
@@ -113,71 +112,17 @@ const AddTaskModal = (props) => {
         </div>
 
         <label htmlFor='time'>Choose a time: </label>
-        <select id='selectTime' name='hour' onChange={handleInputChange}>
-          <option className='BLANK' value={null} >
-            
-          </option>
-          <option className='8AM' value='8:00 AM' >
-            8:00 AM
-          </option>
-          <option className='9AM' value='9:00 AM' >
-            9:00 AM
-          </option>
-          <option className='10AM' value='10:00 AM' >
-            10:00 AM
-          </option>
-          <option className='11AM' value='11:00 AM' >
-            11:00 AM
-          </option>
-          <option className='12PM' value='12:00 PM' >
-            12:00 PM
-          </option>
-          <option className='1PM' value='1:00 PM' >
-            1:00 PM
-          </option>
-          <option className='2PM' value='2:00 PM' >
-            2:00 PM
-          </option>
-          <option className='3PM' value='3:00 PM' >
-            3:00 PM
-          </option>
-          <option className='4PM' value='4:00 PM' >
-            4:00 PM
-          </option>
-          <option className='5PM' value='5:00 PM' >
-            5:00 PM
-          </option>
-          <option className='6PM' value='6:00 PM' >
-            6:00 PM
-          </option>
-          <option className='7PM' value='7:00 PM' >
-            7:00 PM
-          </option>
-          <option className='8PM' value='8:00 PM' >
-            8:00 PM
-          </option>
-          <option className='9PM' value='9:00 PM' >
-            9:00 PM
-          </option>
-          <option className='10PM' value='10:00 PM' >
-            10:00 PM
-          </option>
-          <option className='11PM' value='11:00 PM' >
-            11:00 PM
-          </option>
-          <option className='12AM' value='12:00 AM' >
-            12:00 AM
-          </option>
-          {/* {arr} */}
+        <select id='selectTime' name='selectTime' onChange={handleInputChange}>
+          {arr}
         </select>
-        <form onChange={handleInputChange}>
+        <form>
           <p>Type: </p>
 
-          <input type='radio' className='personal' name='type' value='Personal' ></input>
-          <label htmlFor='personal'>Personal</label>
-          <input type='radio' className='work' name='type' value='Work' ></input>
+          <input type='radio' className='social' name='type' value='social' onChange={handleInputChange}></input>
+          <label htmlFor='social'>Social</label>
+          <input type='radio' className='work' name='type' value='work' onChange={handleInputChange}></input>
           <label htmlFor='work'>Work</label>
-          <input type='radio' className='school' name='type' value='School' ></input>
+          <input type='radio' className='school'name='type' value='school' onChange={handleInputChange}></input>
           <label htmlFor='school'>School</label>
         </form>
 

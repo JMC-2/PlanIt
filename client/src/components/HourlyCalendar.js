@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import hoursDetail from '../data/hours';
 import "../styles/HourlyCalendar.css"
 
 
 const HourlyCalendar = ({userId, data}) => {
+
+  const [taskArray1, setTaskArray1] = useState([]);
+
+  useEffect(()=> {
   const arr = [];
   hoursDetail.map((times)=>{
     {/* console.log(times.time) */}
     if (data){
-      data?.map((obj) => {
+      data.map((obj) => {
             
             //CHECK THE DATA FROM THE OBJECT ********************************
             if (obj.time === times.time){
@@ -23,11 +27,13 @@ const HourlyCalendar = ({userId, data}) => {
       arr.push(<div key={times.time} className={times.time}> {times.time} </div>)
     }
   })
+  setTaskArray1(arr);
+}, []);
 
   return (
   <>
     <div className='timedisplay'>
-      {arr}
+      {taskArray1}
     </div>
   
   </>

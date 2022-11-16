@@ -10,11 +10,19 @@ const createErr = (method, err) => {
 };
 
 taskController.addTask = (req, res, next) => {
-  const { userId, inputName, description, date, time, schedule, type } = req.body;
-  console.log('type: ', type);
+  console.log('HELLO from addTask')
+  const { userId, inputName, description, date, time, type } = req.body;
+  let queryArr = [userId, inputName, description, date, time, type];
+  console.log('time from add task', time)
+  if (!time) queryArr = [userId, inputName, description, date, null, type];
+  if (!date) queryArr = [userId, inputName, description, null, time, type];
+  if (!date && !time) queryArr = [userId, inputName, description, null, null, type];
+  console.log(typeof time);
+  console.log('time: ', time);
 
   const query = 'INSERT INTO tasks (user_id, name, description, date, time, calendar_id) VALUES ($1, $2, $3, $4, $5, (SELECT calendar_id FROM calendars WHERE name=$6)) RETURNING *;';
-  db.query(query, [userId, inputName, description, date, time, type], (err, result) => {
+  // db.query(query, [userId, inputName, description, date, time, type], (err, result) => {
+  db.query(query, queryArr, (err, result) => {
     if (err) {
       return next(createErr('addTask', err));
     } else {
@@ -31,7 +39,9 @@ taskController.addTask = (req, res, next) => {
 };
 
 
+
 taskController.getTask = (req, res, next) => {
+  console.log('HELLO from getTask'); 
   const { userId } = req.body;
   const query = 'SELECT * FROM tasks WHERE user_id = $1;';
   db.query(query, [userId], (err, result) => {
@@ -65,5 +75,5 @@ module.exports = taskController;
 //   date: initialValues.date,
 //   time: initialValues.hour,
 //   schedule: initialValues.schedule,
-//   type: initialValues.personal,
+//   type: initialValues.social,
 // };

@@ -1,6 +1,6 @@
  const hoursDetail = [
     {
-        time:' '
+        time:'null'
     },
     {
         time:'8:00 AM'
