@@ -17,13 +17,19 @@ const signupController = {
   addUser: (req, res, next) => {
     console.log(req.body);
     const { username, name, email, password } = req.body;
-    const query = 'INSERT INTO users (username, name, email, password) VALUES ($1, $2, $3, $4);';
+    const query = 'INSERT INTO users (username, name, email, password) VALUES ($1, $2, $3, $4) RETURNING *;';
     db.query(query, [username, name, email, password], (err, result) => {
       if (err) {
         console.log(err);
         next(createErr('addUser'));
       } else {
-        res.locals.isSuccess = true;
+        // console.log('db result: ', result);
+        // console.log('result', result.rows)
+        res.locals.isSuccess = {
+          user_id: result.rows[0].user_id,
+          username: result.rows[0].username,
+          isSuccess: true,
+        };
         next();
       }
     });

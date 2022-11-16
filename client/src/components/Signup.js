@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Signup = () => {
+const Signup = ({setUsername, setUserId}) => {
   const navigate = useNavigate();
 
   const handleClick = async (e) => {
@@ -26,19 +26,21 @@ const Signup = () => {
         body: JSON.stringify(body),
       });
       const receivedBack = await res.json();
-      if (receivedBack.added === true) {
-        setUsername(body.username);
-        serUserId(body.user_id);
-        navigate('/');
+      console.log('receivedBack: ', receivedBack)
+      if (receivedBack.isSuccess === true) {
+        setUsername(receivedBack.username);
+        setUserId(receivedBack.user_id);
+        navigate('/home');
       } else {
         alert('Unable to add');
       }
     } catch (error) {
-      console.log('error');
+      console.log(error.message);
     }
+  }
 
     return (
-      <>
+      <div>
         <div className='loginDiv' id='signinDiv'>
           <h1>Please Sign Up </h1>
           <form className='loginDivForm' onSubmit={handleClick}>
@@ -81,13 +83,12 @@ const Signup = () => {
             ></input>
           </form>
 
-          <Link to='/login' id='newAccBtn'>
+          <Link to='/' id='newAccBtn'>
             Go back to Login
           </Link>
         </div>
-      </>
+      </div>
     );
-  };
 };
 
 export default Signup;
