@@ -11,21 +11,21 @@ const HourlyCalendar = ({userId, data}) => {
   const arr = [];
   hoursDetail.map((times)=>{
     {/* console.log(times.time) */}
-    if (data){
-      data.map((obj) => {
+    // if (data){
+    //   data.map((obj) => {
             
-            //CHECK THE DATA FROM THE OBJECT ********************************
-            if (obj.time === times.time){
-              let chunk = 
-                  <li> 
-                    {obj.name}
-                  </li>;
-              arr.push(<div key={times.time} className={times.time}> {times.time} {chunk}</div>)
-            }
-          });
-    } else {
-      arr.push(<div key={times.time} className={times.time}> {times.time} </div>)
-    }
+    //         //CHECK THE DATA FROM THE OBJECT ********************************
+    //         if (obj.time === times.time){
+    //           let chunk = 
+    //               <li> 
+    //                 {obj.name}
+    //               </li>;
+    //           arr.push(<div key={times.time} className={times.time}> {times.time} {chunk}</div>)
+    //         }
+    //       });
+    // } else {
+      arr.push(<div key={times.time} className="time"> {times.time} </div>)
+    // }
   })
   setTaskArray1(arr);
 }, []);
@@ -33,7 +33,8 @@ const HourlyCalendar = ({userId, data}) => {
   return (
   <>
     <div className='timedisplay'>
-      {taskArray1}
+      <h1 className='timeheading'>Time :</h1>
+      <div>{taskArray1}</div>
     </div>
   
   </>

@@ -24,14 +24,14 @@ const TodoInputBox = ({userId, data}) => {
       //CHECK THE DATA FROM THE OBJECT ********************************
       if (obj.date && obj.time){
         let chunk = 
-            <li> 
+            <ul className="time"> 
               {obj.name}
-              <button onClick={toggleAddTaskModal}>Update</button>
+              <button className='toButton' onClick={toggleAddTaskModal}>Update</button>
               <Modal
                 showAddTaskModal={showAddTaskModal}
                 toggleAddTaskModal={toggleAddTaskModal}
               />
-            </li>;
+            </ul>;
         arr.push(chunk);
       }
     });

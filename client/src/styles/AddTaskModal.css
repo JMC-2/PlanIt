@@ -9,6 +9,7 @@
   }
   
   .modal-main {
+    padding: 2rem;
     position:fixed;
     background: white;
     width: 50%;
@@ -17,7 +18,7 @@
     left:50%;
     transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
-    border: 3.2px solid #ec633677;
+    border-radius: 5px;
     box-shadow: 8px 7px 17px 0px rgba(56,56,56,0.63);
   }
   

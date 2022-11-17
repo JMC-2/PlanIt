@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import "../styles/Login.scss"
 
 const Login = ({setUsername,setUserId}) => {
   const navigate = useNavigate();
@@ -66,22 +67,25 @@ const Login = ({setUsername,setUserId}) => {
   
   
   return (
-    <div>
-      <h1 id= 'title'>PlanIt</h1>
-      <div className='loginDiv'>
-        <h1>Please Log In </h1>
-        <form className='loginDivForm' onSubmit={handleClick}>
-          <input className="inputFields" type='text' id='username' name='username' placeholder="Username"></input>
-          <br></br>
-          <input className="inputFields" type='password' id='password' name='password' placeholder='Password'></input>
-          <br></br>
-          <input className="loginDivBtn" type='submit' value='Login'></input>
-        </form>
-
-        <Link to='/signup' id='newAccBtn'>Create A New Account</Link>
-      </div>
+    <div class="container">
+  <div class="top"></div>
+  <div class="bottom"></div>
+  <div class="center">
+    <h2>Please Sign In</h2>
+    <form onSubmit={handleClick}>
+    <input type="text" placeholder="username"/>
+    <input type="password" placeholder="password"/>
+    <input class="login" type='submit' value='Login'></input>
+    </form>
+    <div class="footer">
+    <span to='/signup' id='newAccBtn'>
+    <Link to='/signup' className='signup' id='newAccBtn'>Sign Up</Link>
+    </span>
+  <div class="footer">
+  </div>
     </div>
+  </div>
+</div>
   );
 }
-
 export default Login;

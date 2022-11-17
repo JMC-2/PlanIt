@@ -57,8 +57,6 @@ taskController.getTask = (req, res, next) => {
 };
 
 module.exports = taskController;
- 
-<<<<<<< HEAD
 
 //  task_id     SERIAL PRIMARY KEY NOT NULL,
 //   user_id     INT NOT NULL,

@@ -1,13 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: 'Questrial', sans-serif;
+	line-height: 1.6;
+	margin: 0;
+	min-height: 100vh;
+}
+
+
 .navbar{
   display: flex;
   justify-content: space-between;
-  background-color: tan;
+  background: #D4A373;
+  box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.4);
 }
 
 .leftNav{
-
+  padding: 1rem;
 }
 
 .rightNav{
-  
+  padding: 1rem;
+}
+
+.calendarButton{
+  display:inline-block;
+  padding:.5rem;
+  border:0.16em solid rgba(255,255,255,0);
+  border-radius:8px;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight: 40px;;
+  color:#D4A373;
+  text-align:center;
+  transition: all 0.2s;
+  background-color: #FAEDCD;
+}
+.calendarButton:hover{
+ border-color: rgba(255,255,255,1);
+}
+
+
+.taskButton{
+  margin:0  ;
+  background-color: #D4A373;
+  border: none;
+}
+.taskButton:hover{
+ border-color: rgba(255,255,255,1);
+}
+
+.plus{
+  width: 2rem;
 }
