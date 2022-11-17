@@ -93,14 +93,15 @@ body{
 }
 
 .login:hover {
-  background-color:#d2d9bc;
+  background-color:#e9ebe0;
+  cursor: pointer;
   transition: 0.7s;
 }
 
 .footer {
   display: flex;
   font-size: 0.7em;
-  color: CCD5AE;
+  color: #CCD5AE;
 
   padding-bottom: 4em;
   span { cursor: pointer }
@@ -108,7 +109,7 @@ body{
 
 .signup {
   padding: 1px;
-  color: #E9EDC9;
+  color: #CCD5AE;
   font-weight: 200;
 }
 

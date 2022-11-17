@@ -4,35 +4,46 @@ import Modal from './AddTaskModal';
 const TodoInputBox = ({userId, data}) => {
 
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
+  const [taskArray, setTaskArray] = useState([]);
 
   const toggleAddTaskModal = () => {
     setShowAddTaskModal(!showAddTaskModal);
   };
 
-  const arr = [];
-  // assuming that data is an array of objects
-  data?.map((obj) => {
+  console.log('data from INPUTBOX',data)
+
+  useEffect(() => {
+
+    console.log('data from INPUTBOX',data)
     
-    //CHECK THE DATA FROM THE OBJECT ********************************
-    if (obj.date && !obj.time){
-      let chunk = 
-          <li> 
-            {obj.name}
-            <button onClick={toggleAddTaskModal}>Update</button>
-            <Modal
-              showAddTaskModal={showAddTaskModal}
-              toggleAddTaskModal={toggleAddTaskModal}
-            />
-          </li>;
-      arr.push(chunk);
-    }
-  });
+    const arr = [];
+    // assuming that data is an array of objects
+    data.map((obj) => {
+      console.log('data##########',obj.date)
+      console.log('time##########',obj.time)
+      //CHECK THE DATA FROM THE OBJECT ********************************
+      if (obj.date && obj.time){
+        let chunk = 
+            <ul className="time"> 
+              {obj.name}
+              <button className='toButton' onClick={toggleAddTaskModal}>Update</button>
+              <Modal
+                showAddTaskModal={showAddTaskModal}
+                toggleAddTaskModal={toggleAddTaskModal}
+              />
+            </ul>;
+        arr.push(chunk);
+      }
+    });
+    setTaskArray(arr);
+
+  }, [data])
   
   return (
   <div>
        <div className='rightNav'>
         <ul className='ul'>
-          {arr}
+          {taskArray}
         </ul>
       </div>
   </div>

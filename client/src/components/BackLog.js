@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import '../styles/BackLog.css';
 import Modal from './AddTaskModal';
 
 const BackLog = ({userId, data}) => {
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
-
+  const [taskArrayBackLog, setTaskArrayBackLog] = useState([]);
   const toggleAddTaskModal = () => {
     setShowAddTaskModal(!showAddTaskModal);
   };
 
+  useEffect(()=>{
   const arr = [];
   // assuming that data is an array of objects
-  data?.map((obj) => {
+  data.map((obj) => {
     
     //CHECK THE DATA FROM THE OBJECT ********************************
     if (!obj.date && !obj.time){
@@ -27,13 +28,15 @@ const BackLog = ({userId, data}) => {
       arr.push(chunk);
     }
   });
+  setTaskArrayBackLog(arr)
+},[])
 
   return (
     <div className='backlog'>
       <h1 className='heading'>Backlog :</h1>
       <div className='rightNav'>
         <ul className='ul'>
-          {arr}
+          {taskArrayBackLog}
         </ul>
       </div>
     </div>

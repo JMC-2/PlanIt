@@ -3,11 +3,11 @@ const app = express();
 const path = require('path');
 const apiRouter = require('./routers/api.js');
 const loginRouter = require('./routers/login.js');
-const cors = require('cors');
+// const cors = require('cors');
 // const cookieParser = require('cookie-parser');
 
 // app.use(cookieParser());
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -18,10 +18,11 @@ app.get('/', (req, res) => {
 
 app.use(express.static(path.join(__dirname, '../client')));
 
+// two routers - api is set up for all routes after login. user route set up for all login routes
 app.use('/api', apiRouter);
 app.use('/user', loginRouter);
 
- 
+  
 // error handlers
 //local error handler
 app.use((req, res) => {

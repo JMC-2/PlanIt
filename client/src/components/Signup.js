@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import "../styles/Signup.scss"
 
 const Signup = ({setUsername, setUserId}) => {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ const Signup = ({setUsername, setUserId}) => {
       });
       const receivedBack = await res.json();
       console.log('receivedBack: ', receivedBack)
+      localStorage.setItem('jwtHeaderKey', receivedBack.jwt);
       if (receivedBack.isSuccess === true) {
         setUsername(receivedBack.username);
         setUserId(receivedBack.user_id);
@@ -40,54 +42,45 @@ const Signup = ({setUsername, setUserId}) => {
   }
 
     return (
-      <div>
-        <div className='loginDiv' id='signinDiv'>
-          <h1>Please Sign Up </h1>
-          <form className='loginDivForm' onSubmit={handleClick}>
-            <input
-              className='inputFields'
-              type='text'
-              id='username'
-              name='username'
-              placeholder='Username'
-            ></input>
-            <br></br>
-            <input
-              className='inputFields'
-              type='text'
-              id='name'
-              name='name'
-              placeholder='Name'
-            ></input>
-            <br></br>
-            <input
-              className='inputFields'
-              type='text'
-              id='email'
-              name='email'
-              placeholder='Email'
-            ></input>
-            <br></br>
-            <input
-              className='inputFields'
-              type='password'
-              id='password'
-              name='password'
-              placeholder='Password'
-            ></input>
-            <br></br>
-            <input
-              className='loginDivBtn'
-              type='submit'
-              value='Sign Up'
-            ></input>
-          </form>
-
-          <Link to='/' id='newAccBtn'>
-            Go back to Login
+      <div class='user'>
+      <header class='userheader'>
+          <h1 class='usertitle'>PlanIt</h1>
+      </header>
+      <form class='form' onSubmit={handleClick}>
+          <div class='formgroup'>
+            <input type='text'
+            id='username'
+            name='username'
+            placeholder='Username'
+            class='forminput' />
+          </div>
+          <div class='formgroup'>
+            <input  type='text'
+            id='name'
+            name='name'
+            placeholder='Name' 
+            class='forminput' />
+          </div>
+          <div class='formgroup'>
+          <input type='text'
+          id='email'
+          name='email'
+          placeholder='Email'
+            class='forminput' />
+          </div>
+          <div class='formgroup'>
+            <input type='password'
+            id='password'
+            name='password'
+            placeholder='Password'
+            class='forminput' />
+          </div>
+          <button class='btn' type='submit' value='Sign Up'>Register</button>
+      </form>
+      <Link to='/' className='signupbtn' id='newAccBtn'>
+            Back to Login
           </Link>
-        </div>
-      </div>
+  </div>
     );
 };
 
