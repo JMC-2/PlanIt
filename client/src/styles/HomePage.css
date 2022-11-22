@@ -10,7 +10,7 @@
 .rightSide{
   display: grid;
   grid-template-rows: 1fr 1fr;
-  width: 49.9vw;
+  width: 48.7vw;
   height: 150vh;
   border-left: .5px solid black;
 }
