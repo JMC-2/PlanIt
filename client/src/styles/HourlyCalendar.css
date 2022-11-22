@@ -1,0 +1,15 @@
+
+.timedisplay{
+  background-color: #CCD5AE;
+  padding: 1rem;
+}
+
+.time {
+  border-bottom: 1px solid #afb697;
+  padding-bottom: 1.8rem;
+} 
+
+.timeheading{
+  padding-bottom: 5px;
+  margin: 0px;
+}
